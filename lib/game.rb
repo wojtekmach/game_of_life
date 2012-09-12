@@ -1,8 +1,5 @@
 class Game
-  attr_reader :max_x, :max_y
-
-  def initialize(max_x, max_y)
-    @max_x, @max_y = max_x, max_y
+  def initialize
     @cells = {}
   end
 
@@ -16,5 +13,15 @@ class Game
 
   def unset(x, y)
     @cells.delete "#{x}-#{y}"
+  end
+
+  def neighbours_num(x, y)
+    count = 0
+
+    if alive?(x, y + 1)
+      count += 1
+    end
+
+    count
   end
 end
