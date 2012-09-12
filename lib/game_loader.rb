@@ -1,6 +1,10 @@
 require_relative 'game'
 
 class GameLoader
+  def self.load_from_str(str)
+    new.load(*str.split("\n"))
+  end
+
   def load(*lines)
     game = Game.new
 
