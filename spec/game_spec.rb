@@ -40,5 +40,22 @@ describe Game do
       game.run
       game.alive?(0, 0).should be_true
     end
+
+    specify 'Any live cell with two or three live neighbours lives on to the next generation.' do
+      game = Game.new
+      game.set(0, 0)
+      game.set(0, 1)
+      game.set(1, 1)
+      game.run
+      game.alive?(0, 0).should be_true
+
+      game = Game.new
+      game.set(0, 0)
+      game.set(0, 1)
+      game.set(1, 0)
+      game.set(1, 1)
+      game.run
+      game.alive?(0, 0).should be_true
+    end
   end
 end
