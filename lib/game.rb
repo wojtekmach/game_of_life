@@ -77,5 +77,7 @@ class Game
 
     to_unset.each { |x, y| unset(x, y) }
     to_set.each { |x, y| set(x, y) }
+
+    self
   end
 end

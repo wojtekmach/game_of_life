@@ -1,4 +1,5 @@
 require_relative '../lib/game'
+require_relative '../lib/game_loader'
 
 describe Game do
   let(:game) { Game.new }
@@ -92,6 +93,58 @@ describe Game do
       game.set(1, 1)
       game.run
       game.alive?(0, 0).should be_true
+    end
+
+    specify 'Glider' do
+      glider = Game(
+        '        ',
+        '   x    ',
+        '    x   ',
+        '  xxx   ',
+        '        ',
+        '        ',
+        '        ',
+        '        ')
+
+      glider.run.should == Game(
+        '        ',
+        '        ',
+        '  x x   ',
+        '   xx   ',
+        '   x    ',
+        '        ',
+        '        ',
+        '        ')
+
+      glider.run.should == Game(
+        '        ',
+        '        ',
+        '    x   ',
+        '  x x   ',
+        '   xx   ',
+        '        ',
+        '        ',
+        '        ')
+
+      glider.run.should == Game(
+        '        ',
+        '        ',
+        '   x    ',
+        '    xx  ',
+        '   xx   ',
+        '        ',
+        '        ',
+        '        ')
+
+      glider.run.should == Game(
+        '        ',
+        '        ',
+        '    x   ',
+        '     x  ',
+        '   xxx  ',
+        '        ',
+        '        ',
+        '        ')
     end
   end
 end
