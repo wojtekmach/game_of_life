@@ -34,4 +34,18 @@ class Game
 
     count
   end
+
+  def run
+    to_unset = []
+
+    @cells.each do |coords, _|
+      x, y = coords.split('-').map(&:to_i)
+
+      if neighbours_num(x, y) < 2
+        to_unset << [x, y]
+      end
+    end
+
+    to_unset.each { |x, y| unset(x, y) }
+  end
 end

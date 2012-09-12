@@ -23,4 +23,22 @@ describe Game do
     game.set(-1, -1)
     game.neighbours_num(0, 0).should == 3
   end
+
+  describe '#run' do
+    specify 'Any live cell with fewer than two live neighbours dies, as if caused by under-population.' do
+      game.run
+      game.alive?(0, 0).should be_false
+
+      game.set(0, 0)
+      game.set(1, 1)
+      game.run
+      game.alive?(0, 0).should be_false
+
+      game.set(0, 0)
+      game.set(0, 1)
+      game.set(1, 1)
+      game.run
+      game.alive?(0, 0).should be_true
+    end
+  end
 end
