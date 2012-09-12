@@ -57,5 +57,17 @@ describe Game do
       game.run
       game.alive?(0, 0).should be_true
     end
+
+    specify 'Any live cell with more than three live neighbours dies, as if by overcrowding.' do
+      game = Game.new
+      game.set(1, 1)
+      game.set(0, 0)
+      game.set(0, 1)
+      game.set(1, 0)
+      game.set(1, 1)
+      game.set(1, 2)
+      game.run
+      game.alive?(1, 1).should be_false
+    end
   end
 end

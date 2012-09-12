@@ -44,6 +44,10 @@ class Game
       if neighbours_num(x, y) < 2
         to_unset << [x, y]
       end
+
+      if neighbours_num(x, y) > 3
+        to_unset << [x, y]
+      end
     end
 
     to_unset.each { |x, y| unset(x, y) }
