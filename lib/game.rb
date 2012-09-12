@@ -37,6 +37,7 @@ class Game
 
   def run
     to_unset = []
+    to_set = []
 
     @cells.each do |coords, _|
       x, y = coords.split('-').map(&:to_i)
@@ -50,6 +51,15 @@ class Game
       end
     end
 
+    (0..100).each do |x|
+      (0..100).each do |y|
+        if !alive?(x, y) && neighbours_num(x, y) == 3
+          to_set << [x, y]
+        end
+      end
+    end
+
     to_unset.each { |x, y| unset(x, y) }
+    to_set.each { |x, y| set(x, y) }
   end
 end

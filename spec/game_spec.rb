@@ -69,5 +69,16 @@ describe Game do
       game.run
       game.alive?(1, 1).should be_false
     end
+
+    specify 'Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.' do
+      game = Game.new
+      game.alive?(0, 0).should be_false
+
+      game.set(0, 1)
+      game.set(1, 0)
+      game.set(1, 1)
+      game.run
+      game.alive?(0, 0).should be_true
+    end
   end
 end
