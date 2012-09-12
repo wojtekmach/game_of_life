@@ -1,6 +1,12 @@
 class Game
+  attr_reader :cells
+
   def initialize
     @cells = {}
+  end
+
+  def ==(other)
+    cells == other.cells
   end
 
   def alive?(x, y)

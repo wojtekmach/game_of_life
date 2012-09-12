@@ -3,6 +3,19 @@ require_relative '../lib/game'
 describe Game do
   let(:game) { Game.new }
 
+  specify '#==' do
+    game1 = Game.new
+    game2 = Game.new
+
+    game1.should == game2
+
+    game1.set(0, 0)
+    game1.should_not == game2
+
+    game2.set(0, 0)
+    game1.should == game2
+  end
+
   specify '#alive?' do
     game.alive?(0, 0).should be_false
     game.set(0, 0)
