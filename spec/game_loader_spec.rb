@@ -42,3 +42,18 @@ describe 'GameLoader' do
     game.alive?(3, 3).should be_true
   end
 end
+
+describe 'Game()' do
+  it 'creates a game from list of lines' do
+    game = Game(
+      '        ',
+      ' x x    ',
+      '  x     ',
+      ' x x    ',
+      '        ',
+      '        ',
+      '        ',
+      '        ')
+    game.should be_kind_of Game
+  end
+end
