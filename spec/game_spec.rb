@@ -19,5 +19,8 @@ describe Game do
 
     game.set(1, 1)
     game.neighbours_num(0, 0).should == 2
+
+    game.set(-1, -1)
+    game.neighbours_num(0, 0).should == 3
   end
 end

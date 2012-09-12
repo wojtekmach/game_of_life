@@ -18,12 +18,18 @@ class Game
   def neighbours_num(x, y)
     count = 0
 
-    if alive?(x, y + 1)
-      count += 1
-    end
+    coords = []
+    coords << [x - 1, y - 1]
+    coords << [x - 1, y]
+    coords << [x - 1, y + 1]
+    coords << [x, y - 1]
+    coords << [x, y + 1]
+    coords << [x + 1, y - 1]
+    coords << [x + 1, y]
+    coords << [x + 1, y + 1]
 
-    if alive?(x + 1, y + 1)
-      count += 1
+    coords.each do |i, j|
+      count += 1 if alive?(i, j)
     end
 
     count
