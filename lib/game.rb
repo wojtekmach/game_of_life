@@ -22,6 +22,10 @@ class Game
       count += 1
     end
 
+    if alive?(x + 1, y + 1)
+      count += 1
+    end
+
     count
   end
 end

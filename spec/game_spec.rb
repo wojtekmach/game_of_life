@@ -16,5 +16,8 @@ describe Game do
 
     game.set(0, 1)
     game.neighbours_num(0, 0).should == 1
+
+    game.set(1, 1)
+    game.neighbours_num(0, 0).should == 2
   end
 end
