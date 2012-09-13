@@ -3,6 +3,8 @@ Game of Life
 
 Building Game of Life using RSpec
 
+See `bin/game_of_life` for a glider animation.
+
 # License
 
 Copyright (C) 2012 Wojciech Mach

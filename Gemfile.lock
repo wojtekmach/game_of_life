@@ -8,6 +8,7 @@ GEM
     guard-shell (0.5.1)
       guard (>= 1.1.0)
     listen (0.5.0)
+    ncurses-ruby (1.2.1)
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
       rspec-expectations (~> 2.11.0)
@@ -24,4 +25,5 @@ PLATFORMS
 DEPENDENCIES
   guard
   guard-shell
+  ncurses-ruby
   rspec
