@@ -5,7 +5,7 @@ class NcursesRunner
     @game = game
 
     @rows = 100
-    @cols = 100
+    @cols = 200
     @wait = 0.01
   end
 
