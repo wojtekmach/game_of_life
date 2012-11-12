@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 
-require "ncurses"
 
 require_relative "../lib/game"
 require_relative "../lib/game_loader"
 require_relative "../lib/game_printer"
+require_relative "../lib/ncurses_runner"
 
 game = Game(
   '        ',
@@ -16,35 +16,4 @@ game = Game(
   '        ',
   '        ')
 
-Ncurses.initscr
-Ncurses.nl()
-Ncurses.noecho()
-Ncurses.curs_set(0)
-Ncurses.stdscr.nodelay(true)
-
-begin
-  win = Ncurses.stdscr
-
-  while true
-    (0..5).each do |y|
-      (0...8).each do |x|
-        win.mvaddstr(y, x, " ")
-      end
-    end
-
-    (0..5).each do |y|
-      (0...8).each do |x|
-        win.mvaddstr(y, x, game.alive?(x, y) ? 'x' : ' ')
-      end
-    end
-
-    win.refresh
-
-    sleep 1
-
-    game.run
-  end
-ensure
-  Ncurses.curs_set(1)
-  Ncurses.endwin()
-end
+NcursesRunner.new(game).run
